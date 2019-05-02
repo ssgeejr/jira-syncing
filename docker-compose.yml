@@ -27,7 +27,7 @@ services:
 #            - local
 #        restart: always
         ports:
-            - 8081:8080
+            - 8880:8080
         volumes:
             - /opt/docker/syning/remote:/var/atlassian/application-data/jira
         networks:
