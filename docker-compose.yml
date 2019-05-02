@@ -1,0 +1,44 @@
+version: '3'
+services:
+    local:
+        image: zcalusic/atlassian-jira-core
+        container_name: local
+        tty: true
+        stdin_open: true
+#        links:
+#            - remote
+#        restart: always
+        ports:
+            - 8080:8080
+        volumes:
+            - /opt/docker/syning/local:/var/atlassian/application-data/jira
+        networks:
+            jira_net:
+                ipv4_address: 10.10.10.10
+                    aliases:
+                        - local
+
+    remote:
+        image: zcalusic/atlassian-jira-core
+        container_name: remote
+        tty: true
+        stdin_open: true
+#        links:
+#            - local
+#        restart: always
+        ports:
+            - 8081:8080
+        volumes:
+            - /opt/docker/syning/remote:/var/atlassian/application-data/jira
+        networks:
+            jira_net:
+                ipv4_address: 10.10.10.20
+                    aliases:
+                        - remote
+
+networks:
+    jira_net:
+        driver: bridge
+        ipam:
+            driver: default
+            config: [{subnet: 10.10.10.0/24}]

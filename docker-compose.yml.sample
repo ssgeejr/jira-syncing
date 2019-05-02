@@ -1,0 +1,87 @@
+version: '3'
+services:
+    db:
+        #image: pasedb:mongohhh
+        image: mongo:4.0.2
+        container_name: db
+        tty: true
+        stdin_open: true
+        restart: always
+        volumes:
+            - /opt/pasedb/mongodb/pasedb:/data/db
+
+    ui:
+#        build: pasedbui/docker
+        image: pasedbui
+        container_name: pasedbui
+        tty: true
+        stdin_open: true
+        links:
+            - db
+        ports:
+            - 80:8080
+
+#        networks:
+#              pasedb_web:
+#                aliases:
+#                 - md
+#              pasedb_dmz:
+#                aliases:
+#                 - md
+
+#networks:
+#    pasedb_web:
+#        driver: bridge
+#        ipam:
+#            driver: default
+#            config: [{subnet: 10.10.1.0/24}]
+#    pasedb_dmz:
+#        driver: bridge
+#        ipam:
+#            driver: default
+#            config: [{subnet: 10.10.2.0/24}]
+
+
+
+# ---------------------------------
+
+version: '3'
+services:
+    mongo:
+        image: archangeldb
+        container_name: archangeldb
+        networks:
+                app_net:
+                        ipv4_address: 192.168.50.10
+                        aliases:
+                                - archangeldb
+
+        tty: true
+        stdin_open: true
+        restart: always
+
+    service:
+        image: archangelms
+        container_name: archangelms
+        networks:
+                app_net:
+                        ipv4_address: 192.168.50.20
+                        aliases:
+                                - archangelms
+        ports:
+            - 8880:8080
+
+    nginx:
+        image: archangelui
+        container_name: archangelui
+        networks:
+                app_net:
+                        ipv4_address: 192.168.50.30
+        ports:
+            - 80:8080
+networks:
+    app_net:
+        driver: bridge
+        ipam:
+            driver: default
+            config: [{subnet: 192.168.50.0/24}]
