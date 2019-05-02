@@ -15,8 +15,8 @@ services:
         networks:
             jira_net:
                 ipv4_address: 10.10.10.10
-                    aliases:
-                        - local
+                aliases:
+                    - local
 
     remote:
         image: zcalusic/atlassian-jira-core
@@ -33,8 +33,8 @@ services:
         networks:
             jira_net:
                 ipv4_address: 10.10.10.20
-                    aliases:
-                        - remote
+                aliases:
+                    - remote
 
 networks:
     jira_net:
