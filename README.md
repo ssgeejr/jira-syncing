@@ -29,6 +29,8 @@ git clone https://github.com/ssgeejr/jira-syncing.git
 
 cd jira-syncing
 
+docker-compose up
+
 ```
 
 #### you should see some output similar to this once it's online
@@ -51,6 +53,16 @@ local     |     ----------------------------------------------------------------
 ```
 
 
+#### Now open two tabs in Chrome/Firefox and navigate to  
+http://localhost:8080/  
+
+http://localhost:8880/  
+
+You should see the notes to add a (test) licences which takes about 2 minutes.  You can install the Backbone software and start testing    
+
+
+
+#manually start the instance (ignore this unless you know exactly what you are doing)
 ```
 sudo docker run -d -p 8080:8080 -v your-jira-home:/var/atlassian/application-data/jira --name jira zcalusic/atlassian-jira-core
 ```
