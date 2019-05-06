@@ -2,19 +2,22 @@
 
 ## Test project for synching two jira instances using the backbone-sync toolkit
 
-### IF you aren't using the VM provided (VirtualBox 6) then skip down to 'Setup CentOS-7 VM' and complete the listed steps
+#TODO
+1 license setup walkthrough  
+2 install Backbone Sync  
+3 test syncing 
 
-## Jira Images and getting started
+### Before you get started make sure you have a Docker enabled VM (scroll down to Setup CentOS-7 VM)
+
+## Notes for Jira Images and getting started
 
 https://hub.docker.com/u/dchevell
 https://hub.docker.com/r/zcalusic/atlassian-jira-core/
-
-
-
 https://github.com/zcalusic/dockerfiles
 
 
 ####manually start (sample)
+_coming soon, maybe_  
 
 ####auto-mode
 ```
@@ -73,8 +76,18 @@ docker-compose up
 ```
 
 ## Setup CentOS-7 VM
+### Build or Download an Images
+You can do this a number of ways, dealers choice  
+
+**Install an OS manually**
+[CentOS](https://www.centos.org/download/ "CentOSDistributions")  
+[Debian](https://www.debian.org/distrib/ "Debian Distributions")  
+
+**Download a pre-built image for VirtualBox**
+[OSBoxes Virtualbox Images](https://www.osboxes.org/virtualbox-images/ "VirtualBox Images")  
 
 ```
+#as root
 adduser devops
 cd /home/devops
 mkdir .ssh
@@ -84,6 +97,11 @@ Host *
     StrictHostKeyChecking no
 EOF
 
+chmod 600 ./*
+cd ..
+chmod 700 .ssh
+chown -R devops:devops .ssh
+
 echo "%devops ALL=(ALL) NOPASSWD: LOG_INPUT: ALL"  > /etc/sudoers.d/scm-devops
 
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -91,9 +109,8 @@ yum install -y epel-release-latest-7.noarch.rpm
 rm -f epel-release-latest-7.noarch.rpm
 yum install -y ftp://bo.mirror.garr.it/1/slc/centos/7.1.1503/extras/x86_64/Packages/container-selinux-2.21-1.el7.noarch.rpm
 
-yum install -y wget curl ansible git tmux python-pip python-dev build-essential lynx elinks tree
+yum install -y wget curl git tmux python-pip python-dev build-essential lynx elinks tree
 wget https://raw.githubusercontent.com/ssgeejr/config/master/.tmux.conf -O /etc/tmux.conf
-
 
 curl -fsSL https://get.docker.com/ | sh
 
@@ -104,4 +121,10 @@ systemctl start docker
 systemctl enable docker
 
 usermod -aG docker devops
+
+#log out, log back in for group settings to take effect
 ```
+
+
+
+
