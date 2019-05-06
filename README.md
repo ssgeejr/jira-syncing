@@ -2,7 +2,7 @@
 
 ## Test project for synching two jira instances using the backbone-sync toolkit
 
-#TODO
+## TODO  
 1 license setup walkthrough  
 2 install Backbone Sync  
 3 test syncing 
@@ -16,10 +16,10 @@ https://hub.docker.com/r/zcalusic/atlassian-jira-core/
 https://github.com/zcalusic/dockerfiles
 
 
-####manually start (sample)
+#### manually start (sample)  
 _coming soon, maybe_  
 
-####auto-mode
+#### auto-mode  
 ```
 #as devops
 sudo chgrp -R devops /opt
@@ -65,12 +65,12 @@ You should see the notes to add a (test) licences which takes about 2 minutes.  
 
 
 
-#manually start the instance (ignore this unless you know exactly what you are doing)
+#### manually start the instance (ignore this unless you know exactly what you are doing)  
 ```
 sudo docker run -d -p 8080:8080 -v your-jira-home:/var/atlassian/application-data/jira --name jira zcalusic/atlassian-jira-core
 ```
 
-####using docker-compose (use this)
+#### using docker-compose (use this)  
 ```
 docker-compose up 
 ```
@@ -79,11 +79,11 @@ docker-compose up
 ### Build or Download an Images
 You can do this a number of ways, dealers choice  
 
-**Install an OS manually**
-[CentOS](https://www.centos.org/download/ "CentOSDistributions")  
+**Install an OS manually**  
+[CentOS](https://www.centos.org/download/ "CentOS Distributions")  
 [Debian](https://www.debian.org/distrib/ "Debian Distributions")  
 
-**Download a pre-built image for VirtualBox**
+**Download a pre-built image for VirtualBox**  
 [OSBoxes Virtualbox Images](https://www.osboxes.org/virtualbox-images/ "VirtualBox Images")  
 
 ```
