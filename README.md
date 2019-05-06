@@ -86,6 +86,7 @@ You can do this a number of ways, dealers choice
 **Download a pre-built image for VirtualBox**  
 [OSBoxes Virtualbox Images](https://www.osboxes.org/virtualbox-images/ "VirtualBox Images")  
 
+### Configure your image for Docker testing
 ```
 #as root
 adduser devops
