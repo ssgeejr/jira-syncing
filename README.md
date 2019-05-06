@@ -22,12 +22,12 @@ _coming soon, maybe_
 #### auto-mode  
 ```
 #as devops
-sudo chgrp -R devops /opt
-sudo mkdir -p /opt/docker/syncing/local
-sudo mkdir -p /opt/docker/syncing/remote
-sudo chown -R devops:devops /opt/docker
+sudo mkdir -p /jira/local
+sudo mkdir -p /jira/remote
+sudo chown -R devops:devops /jira
+sudo chmod -R 777 /jira
 
-cd /opt/docker/syncing
+cd /jira
 git clone https://github.com/ssgeejr/jira-syncing.git
 
 cd jira-syncing
@@ -62,6 +62,13 @@ http://localhost:8080/
 http://localhost:8880/  
 
 You should see the notes to add a (test) licences which takes about 2 minutes.  You can install the Backbone software and start testing    
+
+### Apply a test license to the two instances 
+
+
+
+
+
 
 
 
