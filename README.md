@@ -55,7 +55,6 @@ local     |       TOTAL           :  Used:  141 MiB.  Committed:  432 MiB.  Max:
 local     |     ---------------------------------------------------------------------------------
 ```
 
-
 #### Now open two tabs in Chrome/Firefox and navigate to  
 http://localhost:8080/  
 
@@ -132,6 +131,34 @@ usermod -aG docker devops
 
 #log out, log back in for group settings to take effect
 ```
+
+<!---
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+3-5 alternatives to do Jira syncing ... 
+
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--->
+
+
+<!---
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+3-5 alternatives to do multiple bit-bucket connectivity ... 
+
+
+https://community.atlassian.com/t5/Jira-questions/Can-one-JIRA-project-be-linked-to-multiple-bitbucket-repos-to-be/qaq-p/969084
+
+python option as well ... 
+
+
+
+
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+--->
+
 
 
 
